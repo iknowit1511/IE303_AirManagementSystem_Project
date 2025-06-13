@@ -1,0 +1,315 @@
+.map-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--greyBg);
+  padding-top: 0;
+
+  &.section {
+    padding-bottom: 2rem;
+  }
+
+  .container {
+    .map-page__title {
+      font-size: 1.875rem;
+      color: var(--blackColor);
+      margin-bottom: 2rem;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    margin-top: 80px;
+  }
+
+  &__map {
+    grid-column: 1;
+    height: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--boxShadow);
+    border: 1px solid var(--borderColor);
+    position: relative;
+    z-index: 1;
+  }
+
+  &__info-panel {
+    grid-column: 2;
+    background: var(--whiteColor);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--borderColor);
+    box-shadow: var(--boxShadow);
+    overflow-y: auto;
+    max-height: 600px;
+  }
+
+  &__selected-panel {
+    grid-column: 3;
+    background: var(--whiteColor);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--borderColor);
+    box-shadow: var(--boxShadow);
+    overflow-y: auto;
+    max-height: 600px;
+  }
+
+  &__info-panel,
+  &__selected-panel {
+    .map-page__subtitle {
+      font-size: 1.25rem;
+      color: var(--blackColor);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      border-bottom: 2px solid var(--greyBg);
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  &__location-card {
+    background: var(--whiteColor);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--greyBg);
+    box-shadow: var(--boxShadow);
+    transition: var(--transition);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .map-page__location-label {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      cursor: pointer;
+    }
+
+    .map-page__checkbox {
+      width: 1.125rem;
+      height: 1.125rem;
+      accent-color: var(--PrimaryColor);
+      margin-top: 0.25rem;
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+
+    .map-page__location-info {
+      h4 {
+        font-size: 1rem;
+        color: var(--blackColor);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 0.8125rem;
+        color: var(--greyText);
+        margin-bottom: 0.3rem;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  &__summary {
+    .map-page__province-group {
+      margin-bottom: 1rem;
+
+      p {
+        font-size: 0.8125rem;
+        color: var(--blackColor);
+        margin-bottom: 0.25rem;
+      }
+    }
+
+    .map-page__location-list {
+      list-style: disc;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+
+      li {
+        font-size: 0.8125rem;
+        color: var(--blackColor);
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+
+  &__flights {
+    margin-bottom: 1rem;
+
+    p {
+      font-size: 0.8125rem;
+      color: var(--blackColor);
+      margin-bottom: 0.25rem;
+    }
+
+    .map-page__flight-item {
+      background: var(--greyBg);
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--borderColor);
+
+      p {
+        font-size: 0.75rem;
+        margin-bottom: 0.2rem;
+      }
+    }
+  }
+
+  &__days-input {
+    margin-bottom: 1.25rem;
+
+    label {
+      font-size: 0.8125rem;
+      color: var(--blackColor);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    input {
+      width: 80px;
+      padding: 0.4rem;
+      border: 1px solid var(--borderColor);
+      border-radius: 4px;
+      font-size: 0.8125rem;
+      color: var(--blackColor);
+      background: var(--whiteColor);
+      transition: var(--transition);
+
+      &:focus {
+        outline: none;
+        border-color: var(--PrimaryColor);
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+      }
+    }
+  }
+
+  &__cost-summary {
+    background: var(--greyBg);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+
+    p {
+      font-size: 0.8125rem;
+      color: var(--blackColor);
+      margin-bottom: 0.3rem;
+
+      &:last-child {
+        font-weight: 700;
+        color: var(--PrimaryColor);
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  &__clear-btn,
+  &__recommend-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    flex: 1;
+    text-transform: uppercase;
+  }
+
+  &__clear-btn {
+    background: var(--greyText);
+    color: var(--whiteColor);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  &__recommend-btn {
+    background: var(--PrimaryColor);
+    color: var(--whiteColor);
+
+    &:hover:not(:disabled) {
+      background: var(--SecondaryColor);
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      background: var(--greyText);
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  &__empty {
+    font-size: 0.75rem;
+    color: var(--greyText);
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .loading,
+  .error {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--greyText);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .map-page {
+    .map-page__content {
+      grid-template-columns: 1fr;
+      margin-top: 60px;
+      padding: 1rem 0;
+    }
+
+    .map-page__map,
+    .map-page__info-panel,
+    .map-page__selected-panel {
+      grid-column: 1;
+    }
+
+    .map-page__map {
+      height: 400px;
+      min-height: 400px;
+    }
+
+    .map-page__title {
+      font-size: 1.5rem;
+    }
+
+    .map-page__actions {
+      flex-direction: column;
+    }
+
+    .map-page__clear-btn,
+    .map-page__recommend-btn {
+      width: 100%;
+    }
+  }
+}

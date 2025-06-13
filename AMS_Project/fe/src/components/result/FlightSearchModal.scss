@@ -1,0 +1,271 @@
+/* FlightSearchModal.scss */
+.flight-search-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for focus */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in effect */
+  }
+  
+  .flight-search-modal-content {
+    background-color: #ffffff;
+    border-radius: 12px; /* Modern, rounded corners */
+    padding: 25px;
+    max-width: 600px; /* Wider for better content fit */
+    width: 90%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Deep, soft shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Consistent spacing */
+    transform: scale(0.95);
+    animation: popIn 0.3s ease-out forwards; /* Pop-in animation */
+  }
+  
+  .flight-search-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e9ecef; /* Subtle divider */
+    padding-bottom: 15px;
+  }
+  
+  .flight-search-modal-title {
+    font-size: 1.75rem; /* Bold, prominent title */
+    font-weight: 700;
+    color: #1a3552; /* Rich, dark blue */
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  .flight-search-modal-close {
+    font-size: 2rem;
+    color: #6c757d; /* Muted gray for close button */
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+    &:hover {
+      color: #dc3545; /* Red on hover for emphasis */
+      transform: scale(1.1);
+    }
+  }
+  
+  .flight-search-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 60vh; /* Limit height for scrolling */
+    overflow-y: auto; /* Scroll for long flight lists */
+  }
+  
+  .flight-search-modal-info {
+    background-color: #f8f9fa; /* Light background for context */
+    padding: 15px;
+    border-radius: 8px;
+    p {
+      font-size: 1.1rem;
+      color: #495057; /* Modern, soft gray */
+      margin: 5px 0;
+      line-height: 1.6;
+      strong {
+        color: #2c3e50; /* Darker for emphasis */
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .flight-search-modal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .flight-search-modal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #e9ecef; /* Subtle border */
+    border-radius: 8px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Hover glow */
+      transform: translateY(-2px);
+    }
+  }
+  
+  .flight-search-modal-details {
+    flex: 1;
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin: 5px 0;
+      line-height: 1.5;
+      strong {
+        color: #2c3e50;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .flight-search-modal-select-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    background: linear-gradient(90deg, #28a745, #34c759); /* Green gradient for selection */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    &:hover {
+      background: linear-gradient(90deg, #218838, #2ea44f); /* Darker green on hover */
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+    }
+  }
+  
+  .flight-search-modal-empty {
+    font-size: 1.1rem;
+    color: #95a5a6; /* Soft gray for empty state */
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .flight-search-modal-footer {
+    border-top: 1px solid #e9ecef; /* Subtle divider */
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .flight-search-modal-cancel-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: #6c757d; /* Gray for cancel */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    &:hover {
+      background-color: #5a6268; /* Darker gray on hover */
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes popIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .flight-search-modal-content {
+      padding: 20px;
+      width: 95%;
+    }
+  
+    .flight-search-modal-title {
+      font-size: 1.5rem;
+    }
+  
+    .flight-search-modal-info {
+      padding: 12px;
+      p {
+        font-size: 1rem;
+      }
+    }
+  
+    .flight-search-modal-item {
+      padding: 12px;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+  
+    .flight-search-modal-select-btn {
+      padding: 10px 25px;
+      font-size: 1rem;
+      width: 100%; /* Full width for better tap area */
+    }
+  
+    .flight-search-modal-cancel-btn {
+      padding: 10px 25px;
+      font-size: 1rem;
+    }
+  
+    .flight-search-modal-header {
+      padding-bottom: 10px;
+    }
+  
+    .flight-search-modal-footer {
+      padding-top: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .flight-search-modal-content {
+      padding: 15px;
+      width: 98%;
+    }
+  
+    .flight-search-modal-title {
+      font-size: 1.3rem;
+    }
+  
+    .flight-search-modal-info {
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  
+    .flight-search-modal-details {
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  
+    .flight-search-modal-empty {
+      font-size: 1rem;
+      padding: 15px;
+    }
+  
+    .flight-search-modal-select-btn {
+      padding: 8px 20px;
+      font-size: 0.95rem;
+    }
+  
+    .flight-search-modal-cancel-btn {
+      padding: 8px 20px;
+      font-size: 0.95rem;
+    }
+  }
